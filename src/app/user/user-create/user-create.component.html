@@ -1,0 +1,74 @@
+<div class="create-container mat-elevation-z8">
+  <div class="create-loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+
+  <!-- Page Title -->
+  <h2 class="mat-title">User Create</h2>
+
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/user']" title="Go to Listing"><mat-icon>list</mat-icon></a>
+  </div>
+
+  <mat-card class="create-card">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <!-- Username -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Username <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error *ngIf="submitted && f.username.errors">
+          <span *ngIf="f.username.errors.required">Username required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Display Name -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Full Name <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Full Name" formControlName="displayName">
+        <mat-error *ngIf="submitted && f.displayName.errors">
+          <span *ngIf="f.displayName.errors.required">Display Name required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email Id -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Email Id <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Email Id" formControlName="emailId">
+        <mat-error *ngIf="submitted && f.emailId.errors">
+          <span *ngIf="f.emailId.errors.required">Email Id required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Mobile No -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Mobile No</mat-label>
+        <input matInput placeholder="Mobile No" formControlName="mobileNo">
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Password <span class="color-red">*</span></mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <mat-error *ngIf="submitted && f.password.errors">
+          <span *ngIf="f.password.errors.required">Password required</span>
+          <span *ngIf="f.password.errors.minlength">Password must be at least 8 characters</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Confirm Password -->
+      <mat-form-field class="create-form-field">
+        <mat-label>Confirm Password <span class="color-red">*</span></mat-label>
+        <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+        <mat-error *ngIf="submitted && f.confirmPassword.errors">
+          <span *ngIf="f.confirmPassword.errors.required">Confirm Password required</span>
+          <span *ngIf="f.confirmPassword.errors.minlength">Confirm Password must be at least 8 characters</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Submit button -->
+      <div class="button-row">
+        <button type="submit" [disabled]="!createForm.valid || loading" mat-flat-button color="primary">Create</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

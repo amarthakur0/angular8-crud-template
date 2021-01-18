@@ -1,0 +1,46 @@
+/* Import Common CSS */
+@import "./common.css";
+
+/* ===== Create Page CSS ===== */
+.create-container {
+  position: relative;
+  padding: 5px;
+}
+
+.create-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.create-form-field {
+  width: 45%;
+  margin: 10px;
+}
+
+.create-form-field:nth-last-child(0) {
+  margin-bottom: 10px;
+}
+
+.create-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== For Mobile Devices ===== */
+@media only screen and (max-width: 480px) {
+  .create-form-field {
+    width: 95% !important;
+  }
+}
+/* ===== For Mobile Devices ===== */
+
+/* ===== Create Page CSS ===== */

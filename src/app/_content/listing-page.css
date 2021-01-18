@@ -1,0 +1,67 @@
+/* Import Common CSS */
+@import "./common.css";
+
+/* ===== Listing Page CSS ===== */
+.listing-container {
+  position: relative;
+  padding: 5px;
+}
+
+.listing-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.listing-table {
+  width: 100%;
+}
+
+.listing-table .mat-icon {
+  margin-right: 5px !important;
+}
+
+.listing-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing-rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.listing-table .mat-column-number, .mat-column-state {
+  max-width: 64px;
+}
+
+.listing-table .mat-column-created {
+  max-width: 124px;
+}
+
+.listing-container .mat-flat-button {
+  margin: 5px;
+  float: right;
+}
+
+/* ===== For Mobile Devices ===== */
+@media only screen and (max-width: 480px) {
+  .mat-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+/* ===== For Mobile Devices ===== */
+
+/* ===== Listing Page CSS ===== */

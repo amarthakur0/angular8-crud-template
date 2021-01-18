@@ -1,0 +1,45 @@
+<div class="update-container mat-elevation-z8">
+  <div class="update-loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+
+  <!-- Page Title -->
+  <h2 class="mat-title">User Update</h2>
+
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/user']" title="Go to Listing"><mat-icon>list</mat-icon></a>
+  </div>
+
+  <mat-card class="update-card">
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <!-- Username -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Username <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Username" formControlName="username" disabled>
+        <mat-error *ngIf="submitted && f.username.errors">
+          <span *ngIf="f.username.errors.required">Username required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Display Name -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Full Name <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Full Name" formControlName="displayName">
+        <mat-error *ngIf="submitted && f.displayName.errors">
+          <span *ngIf="f.displayName.errors.required">Display Name required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Mobile No -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Mobile No</mat-label>
+        <input matInput placeholder="Mobile No" formControlName="mobileNo">
+      </mat-form-field>
+
+      <!-- Submit button -->
+      <div class="button-row">
+        <button type="submit" [disabled]="!updateForm.valid || loading" mat-flat-button color="primary">Update</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

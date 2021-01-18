@@ -1,0 +1,23 @@
+.container {
+  padding: 0px !important;
+}
+
+.nav-width {
+  max-width: 1140px;
+  margin: 0 auto !important;
+}
+
+.footer {
+  bottom: 0;
+  max-width: 1140px;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}

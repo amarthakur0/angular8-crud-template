@@ -1,0 +1,62 @@
+<!-- Header Top Nav -->
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark nav-width" *ngIf="currentUser">
+    <!-- Logo -->
+    <span class="navbar-brand">
+      <img height="40" src="../assets/images/logo.png" alt="Angular" >
+    </span>
+    <!-- Expand button for mobile menu -->
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" 
+      data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu list -->
+    <div class="collapse navbar-collapse" id="navbarsDefault" [ngStyle]="{'display': isNavbarCollapsed ? 'block' : 'none'}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/user">User</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/book">Book</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="javascript:void(0)" id="userDropdown" (click)="isUserDropdownOpen = !isUserDropdownOpen"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{this.userDisplayName}}
+            <img class="rounded-circle" height="30" src="../assets/images/user_avatar.png">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="userDropdown" [ngStyle]="{'display': isUserDropdownOpen ? 'block' : 'none'}">
+            <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Main content -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- main app container -->
+    <div class="container">
+      <alert></alert>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" *ngIf="currentUser">
+  <div class="container">
+    <span class="text-muted">&copy; Copyright {{currentYear}}, Amar Thakur. All Rights Reserved</span>
+  </div>
+</footer>

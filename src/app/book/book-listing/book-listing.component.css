@@ -1,0 +1,60 @@
+.search-button {
+  margin: 40px 10px 10px 0;
+}
+
+.reset-button {
+  margin: 0 10px 10px 0;
+}
+
+.filter-card {
+  background-color: #CCC;
+  margin-bottom: 25px;
+}
+
+.filter-form-field {
+  width: 30%;
+  margin: 10px;
+}
+
+.date-filter {
+  margin-right: 10px !important;
+}
+
+.mat-expansion-panel {
+  margin-bottom: 10px !important;
+}
+
+.mat-panel-title {
+  font-weight: bold;
+}
+
+.no-data {
+  font-size: 14px;
+  margin: 5px;
+  text-align: center;
+  color: rgba(0,0,0,.54);
+}
+
+.para {
+  margin-bottom: 5px !important;
+}
+
+table .mat-icon {
+  margin-right: 5px !important;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 480px) {
+  .filter-form-field {
+    width: 48% !important;
+    margin: 0 5px 0 0 !important;
+  }
+
+  .search-button {
+    margin: 0 0 0 10px !important;
+  }
+
+  .reset-button {
+    margin: 0 !important;
+  }
+}

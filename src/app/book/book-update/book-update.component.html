@@ -1,0 +1,65 @@
+<div class="update-container mat-elevation-z8">
+  <div class="update-loading-shade" *ngIf="loading">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+
+  <!-- Page Title -->
+  <h2 class="mat-title">Book Update</h2>
+
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/book']" title="Go to Listing"><mat-icon>list</mat-icon></a>
+  </div>
+
+  <mat-card class="update-card">
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <!-- ISBN Number -->
+      <mat-form-field class="update-form-field">
+        <mat-label>ISBN Number <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="ISBN Number" formControlName="isbnNumber">        
+      </mat-form-field>
+
+      <!-- Book Name -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Book Name <span class="color-red">*</span></mat-label>
+        <input matInput placeholder="Book Name" formControlName="bookName">
+        <mat-error *ngIf="submitted && f.bookName.errors">
+          <span *ngIf="f.bookName.errors.required">Book Name required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Book Summary -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Book Summary</mat-label>
+        <textarea matInput placeholder="Book Summary" formControlName="bookSummary"></textarea>
+      </mat-form-field>
+
+      <!-- Book Author -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Book Author</mat-label>
+        <input matInput placeholder="Book Author" formControlName="bookAuthor">
+      </mat-form-field>
+
+      <!-- Publication -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Publication</mat-label>
+        <input matInput placeholder="Publication" formControlName="publication">
+      </mat-form-field>
+
+      <!-- Publish Date -->
+      <mat-form-field class="update-form-field">
+        <mat-label>Publish Date <span class="color-red">*</span></mat-label>
+        <input matInput [matDatepicker]="publishDate" [max]="todayDate" placeholder="Publish Date" formControlName="publishDate">
+        <mat-datepicker-toggle matSuffix [for]="publishDate"></mat-datepicker-toggle>
+        <mat-datepicker #publishDate></mat-datepicker>
+        <mat-error *ngIf="submitted && f.publishDate.errors">
+          <span *ngIf="f.publishDate.errors.required">Publish Date required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Submit button -->
+      <div class="button-row">
+        <button type="submit" [disabled]="!updateForm.valid || loading" mat-flat-button color="primary">Update</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

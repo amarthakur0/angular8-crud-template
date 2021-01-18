@@ -1,0 +1,18 @@
+/* ===== Global application CSS ===== */
+/* ===== Common CSS ===== */
+a {
+  cursor: pointer;
+}
+
+.color-red {
+  color: red;
+}
+
+.button-row {
+  margin: 10px 0;
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
+/* ===== Common CSS ===== */
